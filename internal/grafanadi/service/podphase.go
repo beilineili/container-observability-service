@@ -86,7 +86,8 @@ func ConvertPodPhase2Frame(podPhases []*storagemodel.LifePhase) model.DataFrame 
 					phaseMessage = msg.(string)
 				}
 				// 如果extrainfo看到是event就把op赋值为msg
-				op = msg
+				// cannot use msg (variable of type interface{}) as string value in assignment: need type assertion
+				op = msg.(string)
 			}
 			ext = phase.ExtraInfo.(map[string]interface{})["auditEvent.ResponseObject"]
 			if ext != nil {
