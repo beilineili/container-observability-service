@@ -18,6 +18,8 @@ spec:
       labels:
         app: {{ template "lunettes.fullname" . }}
     spec:
+      imagePullSecrets:
+      - name: aliyun
       initContainers:
       - command:
         - bash

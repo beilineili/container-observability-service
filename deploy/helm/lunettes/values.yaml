@@ -4,7 +4,8 @@
 
 # share
 namespace: lunettes
-imagePullPolicy: IfNotPresent
+# 必须是always才是拉的最新镜像
+imagePullPolicy: Always
 kubernetesSvcHost: kubernetes.default
 cluster: staging
 esUser: elastic
@@ -24,7 +25,8 @@ auditLogMaxBackup: 2
 auditLogMaxSize: 200
 
 # lunettes
-lunettesImage: lunettes/lunettes:latest
+# lunettesImage: lunettes/lunettes:latest
+lunettesImage: registry.cn-hangzhou.aliyuncs.com/faas_namespace/lunettes:lunettes-latest
 lunettesNodeport: 30880
 lunettesType: LoadBalancer
 apiserverEnabled: true
@@ -41,6 +43,7 @@ lunettesResources:
 grafanadiInitKubeClient: false
 grafanadiType: LoadBalancer
 grafanadiNodePort: 30280
+# restapiNodePort: 30289
 grafanadiResources:
   limits:
     cpu: 250m
@@ -50,7 +53,8 @@ grafanadiResources:
     memory: 500Mi
 
 # grafana
-grafanaImage: lunettes/grafana:latest
+# grafanaImage: lunettes/grafana:latest
+grafanaImage: registry.cn-hangzhou.aliyuncs.com/faas_namespace/lunettes:grafana-latest
 grafanaType: LoadBalancer
 grafanaNodePort: 30180
 grafanaResources:

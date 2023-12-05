@@ -17,6 +17,8 @@ spec:
       labels:
         app: grafana
     spec:
+      imagePullSecrets:
+      - name: aliyun
       securityContext:
         fsGroup: 472
         supplementalGroups:

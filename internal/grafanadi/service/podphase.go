@@ -124,7 +124,7 @@ func ConvertPodPhase2Frame(podPhases []*storagemodel.LifePhase) model.DataFrame 
 			op = phaseReason
 			t = "Event"
 		}
-		tags := fmt.Sprintf("\"%s\" UA=\"%s\" Level=\"%s\"", op, userAgent, state)
+		tags := fmt.Sprintf("HyperEvent=\"%s\" UserAgent=\"%s\" Level=\"%s\"", op, userAgent, state)
 		stateAry = append(stateAry, convertNil(state))
 		tagsAry = append(tagsAry, convertNil(tags))
 		opsAry = append(opsAry, convertNil(op))
