@@ -27,6 +27,7 @@ spec:
         - chown -R 500:500 /logs
         image: {{ .Values.lunettesImage }}
         imagePullPolicy: {{ .Values.imagePullPolicy }}
+        # imagePullPolicy: Always
         name: init
         securityContext:
           procMount: Default

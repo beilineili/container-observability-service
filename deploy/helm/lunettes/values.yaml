@@ -5,7 +5,7 @@
 # share
 namespace: lunettes
 # 必须是always才是拉的最新镜像
-imagePullPolicy: Always
+imagePullPolicy: IfNotPresent
 kubernetesSvcHost: kubernetes.default
 cluster: staging
 esUser: elastic

@@ -28,6 +28,7 @@ spec:
         name: grafanadi
         image: {{ .Values.lunettesImage }}
         imagePullPolicy: {{ .Values.imagePullPolicy }}
+        # imagePullPolicy: Always
         ports:
         - containerPort: 8080
           name: http-grafanadi

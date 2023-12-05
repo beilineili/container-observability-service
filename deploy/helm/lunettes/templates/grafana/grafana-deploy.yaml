@@ -27,6 +27,7 @@ spec:
       - name: grafana
         image: {{ .Values.grafanaImage }}
         imagePullPolicy: {{ .Values.imagePullPolicy }}
+        # imagePullPolicy: Always
         ports:
           - containerPort: 3000
             name: http-grafana
