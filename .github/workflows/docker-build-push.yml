@@ -3,8 +3,8 @@ name: Build and Push Docker Image
 
 on:
   push:
-    tags: "*"
-    # branch: cross-arch-support-master
+    # tags: "*"
+    branch: cross-arch-support-master
 
 env:
   # LUNETTES_DOCKERHUB_REPO: lunettes/lunettes
