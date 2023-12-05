@@ -829,7 +829,7 @@ data:
               }
             }
           ],
-          "title": "平台信息",
+          "title": "平台信息好",
           "transformations": [
             {
               "id": "organize",
