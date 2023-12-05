@@ -3,7 +3,8 @@ name: Build and Push Docker Image
 
 on:
   push:
-    tags: "*"
+    # tags: "*"
+    branch: cross-arch-support-master
 
 env:
   # LUNETTES_DOCKERHUB_REPO: lunettes/lunettes
@@ -56,8 +57,8 @@ jobs:
             GOARCH=$(go env GOARCH)
           # Generate two Docker tags: ${APP_VERSION} 和 latest
           tags: |
-            ${{ env.LUNETTES_DOCKERHUB_REPO }}:latest
-            ${{ env.LUNETTES_DOCKERHUB_REPO }}:${{ env.APP_VERSION }}
+            ${{ env.LUNETTES_DOCKERHUB_REPO }}-latest
+            ${{ env.LUNETTES_DOCKERHUB_REPO }}-${{ env.APP_VERSION }}
       - name: Build and push grafana
         id: docker_build_grafana
         uses: docker/build-push-action@v2
@@ -73,5 +74,5 @@ jobs:
             PLUGINS=${{ env.GRAFANA_PLUGINS }}
           # Generate two Docker tags: ${APP_VERSION} 和 latest
           tags: |
-            ${{ env.GRAFANA_DOCKERHUB_REPO }}:latest
-            ${{ env.GRAFANA_DOCKERHUB_REPO }}:${{ env.APP_VERSION }}
+            ${{ env.GRAFANA_DOCKERHUB_REPO }}-latest
+            ${{ env.GRAFANA_DOCKERHUB_REPO }}-${{ env.APP_VERSION }}
