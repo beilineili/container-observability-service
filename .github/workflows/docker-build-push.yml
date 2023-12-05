@@ -20,7 +20,8 @@ jobs:
     runs-on: macos-latest
     steps:
       - run: |
-          brew install docker
+        brew install docker
+        colima start
       # git checkout code
       - name: Checkout
         uses: actions/checkout@v2
