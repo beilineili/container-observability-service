@@ -6,8 +6,10 @@ on:
     tags: "*"
 
 env:
-  LUNETTES_DOCKERHUB_REPO: lunettes/lunettes
-  GRAFANA_DOCKERHUB_REPO: lunettes/grafana
+  # LUNETTES_DOCKERHUB_REPO: lunettes/lunettes
+  # GRAFANA_DOCKERHUB_REPO: lunettes/grafana
+  LUNETTES_DOCKERHUB_REPO: registry.cn-hangzhou.aliyuncs.com/faas_namespace/lunettes:lunettes
+  GRAFANA_DOCKERHUB_REPO: registry.cn-hangzhou.aliyuncs.com/faas_namespace/lunettes:grafana
   # Plugins to be installed.
   GRAFANA_PLUGINS: yesoreyeram-infinity-datasource marcusolsson-json-datasource volkovlabs-form-panel marcusolsson-dynamictext-panel
 jobs:
@@ -31,8 +33,11 @@ jobs:
           # GitHub Repo => Settings => Secrets add Docker Hub login key information
           # DOCKERHUB_USERNAME is the Docker Hub username.
           # DOCKERHUB_TOKEN: docker hub => Account Setting => Security => New Access Token.
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          # username: ${{ secrets.DOCKERHUB_USERNAME }}
+          # password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: beilineili
+          password: totalwar@3
+          registry: registry.cn-hangzhou.aliyuncs.com
       # Use the git command to retrieve the current tag information and store it in the environment variable APP_VERSION.
       - name: Generate App Version
         run: echo APP_VERSION=`git describe --tags --always` >> $GITHUB_ENV
