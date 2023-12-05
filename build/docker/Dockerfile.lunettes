@@ -17,8 +17,7 @@ RUN GO111MODULE=on CGO_ENABLED=0 GOOS=darwin GOARCH=${GOARCH} go build -v -a -o 
 RUN GO111MODULE=on CGO_ENABLED=0 GOOS=darwin GOARCH=${GOARCH} go build -v -a -o grafanadi ./cmd/grafanadi
 
 # Copy the aggregator binary into a thin image
-# FROM ubuntu:devel
-FROM macos:latest
+FROM ubuntu:devel
 WORKDIR /
 COPY --from=builder /src/aggregator .
 COPY --from=builder /src/statics ./statics
