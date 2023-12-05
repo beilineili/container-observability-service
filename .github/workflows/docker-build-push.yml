@@ -16,12 +16,12 @@ env:
 jobs:
   main:
     # Run on Ubuntu.
-    # runs-on: ubuntu-latest
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
+    # runs-on: macos-latest
     steps:
-      - run: |
-          brew install docker
-          colima start
+      # - run: |
+      #     brew install docker
+      #     colima start
       # git checkout code
       - name: Checkout
         uses: actions/checkout@v2
