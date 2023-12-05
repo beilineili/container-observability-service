@@ -1,5 +1,5 @@
-# ARG GOARCH=amd64
-ARG GOARCH=arm64
+ARG GOARCH=amd64
+# ARG GOARCH=arm64
 FROM golang:1.20.3 as builder
 
 # Copy in the go src
@@ -8,13 +8,13 @@ COPY . .
 
 RUN ls
 # Build
-# RUN GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=${GOARCH} go build -v -a -o aggregator ./cmd/aggregator
-# RUN GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=${GOARCH} go build -v -a -o auditinstaller ./cmd/audit_init
-# RUN GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=${GOARCH} go build -v -a -o grafanadi ./cmd/grafanadi
+RUN GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=${GOARCH} go build -v -a -o aggregator ./cmd/aggregator
+RUN GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=${GOARCH} go build -v -a -o auditinstaller ./cmd/audit_init
+RUN GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=${GOARCH} go build -v -a -o grafanadi ./cmd/grafanadi
 # RUN GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=${GOARCH} go build -v -a -o restapi ./cmd/restapi
-RUN GO111MODULE=on CGO_ENABLED=0 GOOS=darwin GOARCH=${GOARCH} go build -v -a -o aggregator ./cmd/aggregator
-RUN GO111MODULE=on CGO_ENABLED=0 GOOS=darwin GOARCH=${GOARCH} go build -v -a -o auditinstaller ./cmd/audit_init
-RUN GO111MODULE=on CGO_ENABLED=0 GOOS=darwin GOARCH=${GOARCH} go build -v -a -o grafanadi ./cmd/grafanadi
+# RUN GO111MODULE=on CGO_ENABLED=0 GOOS=darwin GOARCH=${GOARCH} go build -v -a -o aggregator ./cmd/aggregator
+# RUN GO111MODULE=on CGO_ENABLED=0 GOOS=darwin GOARCH=${GOARCH} go build -v -a -o auditinstaller ./cmd/audit_init
+# RUN GO111MODULE=on CGO_ENABLED=0 GOOS=darwin GOARCH=${GOARCH} go build -v -a -o grafanadi ./cmd/grafanadi
 
 # Copy the aggregator binary into a thin image
 FROM ubuntu:devel
