@@ -16,7 +16,8 @@ env:
 jobs:
   main:
     # Run on Ubuntu.
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       # git checkout code
       - name: Checkout
@@ -52,6 +53,7 @@ jobs:
           platforms: |
             linux/amd64
             linux/arm64
+            macos/arm64
           # docker build arg
           build-args: |
             GOARCH=$(go env GOARCH)
@@ -69,6 +71,7 @@ jobs:
           platforms: |
             linux/amd64
             linux/arm64
+            macos/arm64
           # docker build arg
           build-args: |
             PLUGINS=${{ env.GRAFANA_PLUGINS }}
