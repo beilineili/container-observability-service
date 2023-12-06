@@ -20,3 +20,4 @@ COPY --from=builder /src/statics ./statics
 COPY --from=builder /src/auditinstaller .
 COPY --from=builder /src/grafanadi .
 COPY --from=builder /src/restapi .
+

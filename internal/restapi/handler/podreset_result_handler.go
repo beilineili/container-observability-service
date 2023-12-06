@@ -231,4 +231,6 @@ func PodResetResultFactory(w http.ResponseWriter, r *http.Request, storage data_
 		writer:  w,
 		storage: storage,
 	}
+
 }
+

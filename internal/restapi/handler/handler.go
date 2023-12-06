@@ -14,3 +14,5 @@ type Handler interface {
 }
 
 type HandlerFunc func(http.ResponseWriter, *http.Request, data_access.StorageInterface) Handler
+
+

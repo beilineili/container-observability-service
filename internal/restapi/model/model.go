@@ -65,3 +65,4 @@ type Upgrade struct {
 	NeedSreAlert      bool   `json:"NeedSreAlert"`
 	NeedSloAlert      bool   `json:"NeedSloAlert"`
 }
+
